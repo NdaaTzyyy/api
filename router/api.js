@@ -2,7 +2,7 @@ var express = require("express")
 var scr = require("@xct007/frieren-scraper")
 var router = express()
 //made by NDaaaaaaa
-//
+
 router.get("/pinterest", async (req, res, next) => {
     let url = req.query.url
     if (!url) return res.json({"message":"url invalid!"})
