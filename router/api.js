@@ -12,6 +12,13 @@ router.get("/pinterest", async (req, res, next) => {
         result
     })
 })
+router.get("/storywa-latest", async (req, res, next) => {
+    const ress = await scr.storyWa.latest()
+    var result = ress
+    res.json({
+        result
+    })
+})
 router.get("/storywa-search", async (req, res, next) => {
     let query = req.query.query
     if (!query) return res.json({"message":"query invalid!"})
