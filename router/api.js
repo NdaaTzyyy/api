@@ -2,6 +2,7 @@ var express = require("express")
 var scr = require("@xct007/frieren-scraper")
 var router = express()
 //made by NDaaaaaaa
+//
 router.get("/pinterest", async (req, res, next) => {
     let url = req.query.url
     if (!url) return res.json({"message":"url invalid!"})
@@ -20,6 +21,23 @@ router.get("/storywa-search", async (req, res, next) => {
         result
     })
 })
+router.get("/anoboy-search", async (req, res, next) => {
+    let query = req.query.query
+    if (!query) return res.json({"message":"query invalid!"})
+    const ress = await scr.anoboy.search(query)
+    var result = ress
+    res.json({
+        result
+    })
+})
+router.get("/anoboy-latest", async (req, res, next) => {
+    const ress = await scr.anoboy.latest()
+    var result = ress
+    res.json({
+        result
+    })
+})
+//
 router.get("/otakudesu-detail", async (req, res, next) => {
     let url = req.query.url
     if (!url) return res.json({"message":"url invalid!"})
