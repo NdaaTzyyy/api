@@ -2,13 +2,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-console.log('Website Api Created By Ndaa');
 
-var cors = require('cors')
-var bodyParser = require('body-parser')
+var cors = require('cors');
+var bodyParser = require('body-parser');
 
-var apiRouter = require('./router/api.js')
-var HTTP_PORT = 8080
+var apiRouter = require('./router/api')
+var HTTP_PORT = 4000
 
 var app = express();
 
@@ -25,9 +24,8 @@ app.use(express.static(path.join(__dirname, 'hasil')));
 
 app.use('/api', apiRouter);
 
-
 app.listen(HTTP_PORT, () => {
-    console.log(`API BERHASIL HIDUP DENGAN PORT ${HTTP_PORT}`);
-})
+    console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
+});
 
 module.exports = app;
